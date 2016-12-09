@@ -15,7 +15,7 @@ Antes de poder utilizar esta classe é necessário que você obtenha um TOKEN de
 composer require nfephp-org/sped-ibpt
 ```
 
-#NFePHP\Ibpt\Ibpt:::class
+#NFePHP\Ibpt\Ibpt::class
 
 ##Forma de Uso
 
