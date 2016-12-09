@@ -46,10 +46,11 @@ echo "</pre>";
 
 Em caso de não encontrar o produto pelo NCM, ou qualquer outro erro na comunicação, retornará:
 
-    stdClass Object
-    (
-        [error] =>
+   stdClass Object
+   (
+        [error] => SUCESSO
         [response] => "Produto não encontrado"
+        [httpcode] => 404
         [level] => Client ERROR
         [description] => Não encontrado
         [means] => O recurso requisitado não foi encontrado, mas pode ser disponibilizado novamente no futuro. As solicitações subsequentes pelo cliente são permitidas
