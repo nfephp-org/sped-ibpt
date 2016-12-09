@@ -1,0 +1,12 @@
+.idea
+limpaTAB.php
+*~
+*.pfx
+*.pem
+config.json
+local
+vendor
+nbproject
+build
+composer.lock
+config.json
