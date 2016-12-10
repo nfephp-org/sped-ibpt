@@ -2,7 +2,7 @@
 
 [![Chat][ico-gitter]][link-gitter]
 
-Esta é uma API simples para permitir o acesso ao recursos providos pelos serviços RestFul do IBPT (Instituto Brasileiro de Planejamento e Tributação).
+Esta é uma API simples para permitir o acesso ao recursos providos pelos serviços RestFul do [IBPT "Instituto Brasileiro de Planejamento e Tributação"](https://deolhonoimposto.ibpt.org.br/).
 
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
