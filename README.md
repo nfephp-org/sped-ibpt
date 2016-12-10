@@ -1,8 +1,11 @@
 # sped-ibpt
+Este repositório faz parte do framework [NFePHP](http://www.nfephp.org).
 
 [![Chat][ico-gitter]][link-gitter]
 
 Esta é uma API simples para permitir o acesso ao recursos providos pelos serviços RestFul do [IBPT "Instituto Brasileiro de Planejamento e Tributação"](https://deolhonoimposto.ibpt.org.br/).
+
+Para saber mais consulte a [documentação do IBPT](http://iws.ibpt.org.br/).
 
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
@@ -26,6 +29,15 @@ Antes de poder utilizar esta classe é necessário que você obtenha um TOKEN de
 
 ```
 composer require nfephp-org/sped-ibpt
+```
+
+Ou adicione ao seu composer.json:
+```
+{
+    "require": {
+        "nfephp-org/sped-mail": "^0.1"
+    }
+}
 ```
 
 #NFePHP\Ibpt\Ibpt::class
@@ -107,6 +119,9 @@ stdClass Object
     [means] => O recurso requisitado não foi encontrado, mas pode ser disponibilizado novamente no futuro. As solicitações subsequentes pelo cliente são permitidas
 )
 ```
+
+##Credits
+- Roberto L. Machado (owner)
 
 ##Change log
 

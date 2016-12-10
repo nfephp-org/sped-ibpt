@@ -2,6 +2,19 @@
 
 namespace NFePHP\Ibpt;
 
+/**
+ * Class to conect to restful services 
+ *
+ * @category  NFePHP
+ * @package   NFePHP\Ibpt\Rest
+ * @copyright NFePHP Copyright (c) 2016
+ * @license   http://www.gnu.org/licenses/lgpl.txt LGPLv3+
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @license   http://www.gnu.org/licenses/gpl.txt GPLv3+
+ * @author    Roberto L. Machado <linux.rlm at gmail dot com>
+ * @link      http://github.com/nfephp-org/sped-nfe for the canonical source repository
+ */
+
 use NFePHP\Common\Soap\SoapCode;
 use NFePHP\Ibpt\RestInterface;
 
@@ -12,6 +25,7 @@ class Rest implements RestInterface
 
     /**
      * Constructor
+     * @codeCoverageIgnore
      * @param array $proxy Parameter for proxy ['IP','PORT','USER','PASS']
      */
     public function __construct($proxy = [])
