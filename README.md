@@ -35,7 +35,7 @@ Ou adicione ao seu composer.json:
 ```
 {
     "require": {
-        "nfephp-org/sped-mail": "^0.1"
+        "nfephp-org/sped-ipbt": "^1.0"
     }
 }
 ```
