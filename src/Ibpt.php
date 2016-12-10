@@ -20,10 +20,10 @@ use NFePHP\Ibpt\Rest;
 class Ibpt
 {
 
-    protected $url = 'http://iws.ibpt.org.br/';
-    protected $cnpj;
-    protected $token;
-    protected $rest;
+    public $url = 'http://iws.ibpt.org.br/';
+    public $cnpj;
+    public $token;
+    public $rest;
 
     /**
      * Constructor
@@ -58,7 +58,7 @@ class Ibpt
                 . $this->cnpj
                 . "&codigo=$ncm&uf=$uf&ex=$extarif";
 
-        return $this->rest->pull($uri);
+        return json_decode($this->rest->pull($uri));
     }
 
     /**
@@ -67,7 +67,7 @@ class Ibpt
      * @param string $code Código da NBS ou da LC116 do serviço
      * @return \stdClass
      */
-    public function servicesTaxes($uf, $code)
+    public function serviceTaxes($uf, $code)
     {
         $uri = $this->url
                 . "api/Servicos?token="
@@ -76,6 +76,6 @@ class Ibpt
                 . $this->cnpj
                 . "&codigo=$code&uf=$uf";
 
-        return $this->rest->pull($uri);
+        return json_decode($this->rest->pull($uri));
     }
 }

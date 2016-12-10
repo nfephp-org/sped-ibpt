@@ -23,6 +23,7 @@ class Rest implements RestInterface
 
     /**
      * Pull data form IBPT Restful service to obtain taxes values
+     * @codeCoverageIgnore
      * @param string $uri
      * @return \stdClass
      */
@@ -47,11 +48,12 @@ class Rest implements RestInterface
             $ret = array_merge($ret, $resp);
             $response = json_encode($ret);
         }
-        return json_decode($response);
+        return $response;
     }
 
     /**
      * Set proxy parameters
+     * @codeCoverageIgnore
      * @param object $oCurl
      * @param array $proxy
      * @return object
