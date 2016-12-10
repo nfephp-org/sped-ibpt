@@ -3,7 +3,7 @@
 namespace NFePHP\Ibpt;
 
 /**
- * Class to conect to restful services 
+ * Class to conect to restful services
  *
  * @category  NFePHP
  * @package   NFePHP\Ibpt\Rest
