@@ -27,6 +27,7 @@ class Ibpt
 
     /**
      * Constructor
+     * @codeCoverageIgnore
      * @param string $cnpj
      * @param string $token
      * @param array $proxy
