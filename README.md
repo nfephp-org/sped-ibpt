@@ -1,7 +1,7 @@
 # sped-ibpt
 Este repositório faz parte do framework [NFePHP](http://www.nfephp.org).
 
-[![Chat][ico-gitter]][link-gitter]
+[![Join the chat at https://gitter.im/nfephp-org/sped-ibpt](https://badges.gitter.im/nfephp-org/sped-ibpt.svg)](https://gitter.im/nfephp-org/sped-ibpt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Esta é uma API simples para permitir o acesso ao recursos providos pelos serviços RestFul do [IBPT "Instituto Brasileiro de Planejamento e Tributação"](https://deolhonoimposto.ibpt.org.br/).
 
@@ -151,7 +151,6 @@ Este pacote está diponibilizado sob LGPLv3 ou MIT License (MIT). Leia  [Arquivo
 [ico-downloads]: https://img.shields.io/packagist/dt/nfephp-org/sped-ibpt.svg?style=flat-square
 [ico-version]: https://img.shields.io/packagist/v/nfephp-org/sped-ibpt.svg?style=flat-square
 [ico-license]: https://poser.pugx.org/nfephp-org/nfephp/license.svg?style=flat-square
-[ico-gitter]: https://img.shields.io/badge/GITTER-4%20users%20online-green.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/nfephp-org/sped-ibpt
 [link-travis]: https://travis-ci.org/nfephp-org/sped-ibpt
@@ -162,4 +161,3 @@ Este pacote está diponibilizado sob LGPLv3 ou MIT License (MIT). Leia  [Arquivo
 [link-issues]: https://github.com/nfephp-org/sped-ibpt/issues
 [link-forks]: https://github.com/nfephp-org/sped-ibpt/network
 [link-stars]: https://github.com/nfephp-org/sped-ibpt/stargazers
-[link-gitter]: https://gitter.im/nfephp-org/sped-ibpt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
