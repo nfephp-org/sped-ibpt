@@ -20,7 +20,10 @@ use NFePHP\Ibpt\RestInterface;
 
 class Rest implements RestInterface
 {
-
+    
+    /**
+     * @var array
+     */
     protected $proxy = [];
 
     /**
@@ -68,9 +71,9 @@ class Rest implements RestInterface
     /**
      * Set proxy parameters
      * @codeCoverageIgnore
-     * @param object $oCurl
+     * @param resource $oCurl
      * @param array $proxy
-     * @return object
+     * @return resource
      */
     protected function setProxy($oCurl, $proxy)
     {
