@@ -1,6 +1,8 @@
 # sped-ibpt
 Este repositório faz parte do framework [NFePHP](http://www.nfephp.org).
 
+[![Join the chat at https://gitter.im/nfephp-org/sped-ibpt](https://badges.gitter.im/nfephp-org/sped-ibpt.svg)](https://gitter.im/nfephp-org/sped-ibpt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Chat][ico-gitter]][link-gitter]
 
 Esta é uma API simples para permitir o acesso ao recursos providos pelos serviços RestFul do [IBPT "Instituto Brasileiro de Planejamento e Tributação"](https://deolhonoimposto.ibpt.org.br/).
