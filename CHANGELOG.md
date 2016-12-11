@@ -10,3 +10,5 @@ Primeira release
 ## 1.0.1
 -Inclusão de testes unitários
 
+## 1.0.2
+-Correções menores em README e comentários
