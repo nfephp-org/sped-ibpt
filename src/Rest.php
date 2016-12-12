@@ -15,7 +15,7 @@ namespace NFePHP\Ibpt;
  * @link      http://github.com/nfephp-org/sped-nfe for the canonical source repository
  */
 
-use NFePHP\Common\Soap\SoapCode;
+use NFePHP\Ibpt\HttpCode;
 use NFePHP\Ibpt\RestInterface;
 
 class Rest implements RestInterface
@@ -61,7 +61,7 @@ class Rest implements RestInterface
         $ret['httpcode'] = $httpcode;
         curl_close($oCurl);
         if ($httpcode != 200) {
-            $resp = SoapCode::info($httpcode);
+            $resp = HttpCode::info($httpcode);
             $ret = array_merge($ret, $resp);
             $response = json_encode($ret);
         }
