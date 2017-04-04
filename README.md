@@ -72,7 +72,7 @@ echo "</pre>";
 
 # Métodos
 
-##productTaxes
+## productTaxes
 Este método consulta o webservice do IBPT e solicita os dados referentes aos impostos do produto solicitado.
 Sendo:
 ```php
