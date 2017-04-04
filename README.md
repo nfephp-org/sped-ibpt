@@ -91,7 +91,7 @@ Em caso de SUCESSO e com a localização do Produto solicitado irá retornar:
 ```php
 stdClass Object
 (
-	[Codigo] => 60063110
+    [Codigo] => 60063110
     [UF] => MG
     [EX] => 0
     [Descricao] => Tecidos de malha de fibras sinteticas, crus ou branqueados, de náilon ou de outras poliamidas
