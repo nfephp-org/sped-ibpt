@@ -18,14 +18,14 @@ Para saber mais consulte a [documentação do IBPT](http://iws.ibpt.org.br/).
 [![Forks][ico-forks]][link-forks]
 [![Stars][ico-stars]][link-stars]
 
-##Pré Requisitos
+## Pré Requisitos
 
 Antes de poder utilizar esta classe é necessário que você obtenha um TOKEN de acesso cadastrando a empresa no IBPT [página de Cadastro](https://deolhonoimposto.ibpt.org.br/Usuario/CriarConta)
 
 - PHP >= 5.6
 - php-curl
 
-##Intalação
+## Intalação
 
 ```
 composer require nfephp-org/sped-ibpt
@@ -40,9 +40,9 @@ Ou adicione ao seu composer.json:
 }
 ```
 
-#NFePHP\Ibpt\Ibpt::class
+# NFePHP\Ibpt\Ibpt::class
 
-##Forma de Uso
+## Forma de Uso
 
 Existe um exemplo comentado na pasta **"examples"**.
 
@@ -70,9 +70,9 @@ echo "</pre>";
 
 ```
 
-#Métodos
+# Métodos
 
-##productTaxes
+## productTaxes
 Este método consulta o webservice do IBPT e solicita os dados referentes aos impostos do produto solicitado.
 Sendo:
 ```php
@@ -91,7 +91,7 @@ Em caso de SUCESSO e com a localização do Produto solicitado irá retornar:
 ```php
 stdClass Object
 (
-	[Codigo] => 60063110
+    [Codigo] => 60063110
     [UF] => MG
     [EX] => 0
     [Descricao] => Tecidos de malha de fibras sinteticas, crus ou branqueados, de náilon ou de outras poliamidas
@@ -117,24 +117,22 @@ stdClass Object
 )
 ```
 
-##Credits
+## Credits
 - Roberto L. Machado (owner)
 
-##Change log
+## Change log
 
 Acompanhe o [CHANGELOG](CHANGELOG.md) para maiores informações sobre as alterações recentes.
 
-##Contributing
+## Contributing
 
 Para contribuir por favor observe o [CONTRIBUTING](CONTRIBUTING.md) e o  [Código de Conduta](CONDUCT.md) parea detalhes.
 
-##Security
+## Security
 
 Caso você encontre algum problema relativo a segurança, por favor envie um email diretamente aos mantenedores do pacote ao invés de abrir um ISSUE.
 
-##Credits
-
-##License
+## License
 
 Este pacote está diponibilizado sob LGPLv3 ou MIT License (MIT). Leia  [Arquivo de Licença](LICENSE.md) para maiores informações.
 
