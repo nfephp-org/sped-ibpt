@@ -33,8 +33,12 @@ class Ibpt
      * @param array $proxy
      * @param RestInterface $rest
      */
-    public function __construct($cnpj, $token, $proxy = [], RestInterface $rest = null)
-    {
+    public function __construct(
+        $cnpj,
+        $token,
+        $proxy = [],
+        RestInterface $rest = null
+    ) {
         $this->cnpj = $cnpj;
         $this->token = $token;
         $this->rest = $rest;
