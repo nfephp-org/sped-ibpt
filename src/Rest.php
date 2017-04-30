@@ -60,7 +60,6 @@ class Rest implements RestInterface
         $ret['httpcode'] = $httpcode;
         curl_close($oCurl);
         if ($httpcode != 200) {
-            $ret = array_merge($ret, $resp);
             $response = json_encode($ret);
         }
         return $response;
