@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 require_once '../bootstrap.php';
 
-use NFePHP\NFe\Ibpt;
+use NFePHP\Ibpt\Ibpt;
 
 $token = "<Aqui voce coloca seu token do IBPT>";
 $cnpj = "<seu CNPJ>";
