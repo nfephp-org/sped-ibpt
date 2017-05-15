@@ -2,11 +2,11 @@
 
 Este repositório faz parte do framework [NFePHP](http://www.nfephp.org), como um auxilio na busca dos impostos incidentes sobre um determinado produto, utilizando o recurso gratuito oferecido pelo [IBPT](https://ibpt.com.br/).
 
-A Lei do Imposto na Nota (Lei nº 12.741/12, de 8 de dezembro de 2012) nasceu com o intuito de informar ao cidadão o quanto representa a parcela dos tributos que paga a cada compra realizada.
+*A Lei do Imposto na Nota (Lei nº 12.741/12, de 8 de dezembro de 2012) nasceu com o intuito de informar ao cidadão o quanto representa a parcela dos tributos que paga a cada compra realizada.*
 
-Assim, todo estabelecimento que efetuar vendas diretamente ao consumidor final está obrigado a incluir nos documentos fiscais ou equivalentes os impostos pagos, valores aproximados e percentuais. 
+*Assim, todo estabelecimento que efetuar vendas diretamente ao consumidor final **está obrigado** a incluir nos documentos fiscais ou equivalentes os impostos pagos, valores aproximados e percentuais.*
 
-Como consumidores finais incluem-se as pessoas físicas ou jurídicas que adquirem produtos ou serviços, por exemplo, para consumo próprio, materiais de uso ou consumo e ativo imobilizado.
+*Como consumidores finais incluem-se as pessoas físicas ou jurídicas que adquirem produtos ou serviços, por exemplo, para consumo próprio, materiais de uso ou consumo e ativo imobilizado.*
 
 As Microempresas e Empresas de Pequeno Porte optantes do Simples Nacional podem informar apenas a alíquota a que se encontram sujeitas nos termos do referido regime. Além disso, devem somar eventual incidência tributária anterior (IPI, substituição tributária, por exemplo).
 
