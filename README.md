@@ -8,7 +8,7 @@ Este repositório faz parte do framework [NFePHP](http://www.nfephp.org), como u
 
 *Como consumidores finais incluem-se as pessoas físicas ou jurídicas que adquirem produtos ou serviços, por exemplo, para consumo próprio, materiais de uso ou consumo e ativo imobilizado.*
 
-As Microempresas e Empresas de Pequeno Porte optantes do Simples Nacional podem informar apenas a alíquota a que se encontram sujeitas nos termos do referido regime. Além disso, devem somar eventual incidência tributária anterior (IPI, substituição tributária, por exemplo).
+*As Microempresas e Empresas de Pequeno Porte optantes do Simples Nacional podem informar apenas a alíquota a que se encontram sujeitas nos termos do referido regime. Além disso, devem somar eventual incidência tributária anterior (IPI, substituição tributária, por exemplo).*
 
 [![Join the chat at https://gitter.im/nfephp-org/sped-ibpt](https://badges.gitter.im/nfephp-org/sped-ibpt.svg)](https://gitter.im/nfephp-org/sped-ibpt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
