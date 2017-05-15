@@ -1,5 +1,14 @@
 # sped-ibpt
-Este repositório faz parte do framework [NFePHP](http://www.nfephp.org).
+
+Este repositório faz parte do framework [NFePHP](http://www.nfephp.org), como um auxilio na busca dos impostos incidentes sobre um determinado produto, utilizando o recurso gratuito oferecido pelo [IBPT](https://ibpt.com.br/).
+
+*A Lei do Imposto na Nota (Lei nº 12.741/12, de 8 de dezembro de 2012) nasceu com o intuito de informar ao cidadão o quanto representa a parcela dos tributos que paga a cada compra realizada.*
+
+*Assim, todo estabelecimento que efetuar vendas diretamente ao consumidor final **está obrigado** a incluir nos documentos fiscais ou equivalentes os impostos pagos, valores aproximados e percentuais.*
+
+*Como consumidores finais incluem-se as pessoas físicas ou jurídicas que adquirem produtos ou serviços, por exemplo, para consumo próprio, materiais de uso ou consumo e ativo imobilizado.*
+
+*As Microempresas e Empresas de Pequeno Porte optantes do Simples Nacional podem informar apenas a alíquota a que se encontram sujeitas nos termos do referido regime. Além disso, devem somar eventual incidência tributária anterior (IPI, substituição tributária, por exemplo).*
 
 [![Join the chat at https://gitter.im/nfephp-org/sped-ibpt](https://badges.gitter.im/nfephp-org/sped-ibpt.svg)](https://gitter.im/nfephp-org/sped-ibpt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -17,6 +26,16 @@ Para saber mais consulte a [documentação do IBPT](http://iws.ibpt.org.br/).
 [![Issues][ico-issues]][link-issues]
 [![Forks][ico-forks]][link-forks]
 [![Stars][ico-stars]][link-stars]
+
+## Esclarecimentos
+
+1. Os cupons (mod.65, ECF e SAT) e notas fiscais (mod.55) referentes à venda de mercadoria e serviços **devem informar o valor aproximado dos tributos federais, estaduais e municipais**, cuja incidência influencia na formação do preço final;
+
+2. A apuração do valor dos impostos deverá ser feita em 3 campos (um por ente) com a soma das cargas tributárias aproximadas que incidem sobre cada mercadoria ou serviço, separadamente, inclusive nas hipóteses de regimes jurídicos tributários diferenciados dos respectivos fabricantes, varejistas e prestadores de serviços, quando couber.
+
+3. Alternativemente, no caso de lojas físicas, as informações podem estar em painel afixado em local visível do estabelecimento comercial. Elas serão em percentual sobre o preço a ser pago, quando se tratar de tributo com alíquota *"ad valorem"* (sobre valor) ou em valores monetários (no caso de alíquota específica).
+
+> NOTA: Para maiores detalhes vide [NT2013.003](https://www.nfe.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=RrvyORm641k=)
 
 ## Pré Requisitos
 
