@@ -136,6 +136,51 @@ stdClass Object
 )
 ```
 
+## serviceTaxes
+Este método consulta o webservice do IBPT e solicita os dados referentes aos impostos do serviço solicitado.
+Sendo:
+```php
+
+$uf = 'SP'; //A sigla da unidade da federação
+$code = '01.07'; //Código da NBS ou da LC116 do serviço 
+
+*NOTA: codigo com 4 digitos com zero a esquerda, com ou sem ponto separador*
+
+public function serviceTaxes(
+      $uf,
+      $code
+)
+```
+Em caso de SUCESSO e com a localização do Serviço solicitado irá retornar:
+```php
+stdClass Object
+(
+    [Codigo] => 107
+    [UF] => DF
+    [Descricao] => Suporte técnico em informática, inclusive instalação, configuração e manutenção de programas de computação e bancos de dados.
+    [Tipo] => LC116
+    [Nacional] => 13.45
+    [Estadual] => 0
+    [Municipal] => 2
+    [Importado] => 15.45
+    [VigenciaInicio] => 01/07/2017
+    [VigenciaFim] => 30/09/2017
+    [Chave] => M2L5P8
+    [Versao] => 17.2.A
+    [Fonte] => IBPT/empresometro.com.br
+)
+```
+Em caso de não encontrar o produto pelo NCM, ou qualquer outro erro na comunicação, retornará algo como:
+```php
+stdClass Object
+(
+    [error] => SUCESSO
+    [response] => "Serviço não encontrado"
+    [httpcode] => 404
+)
+```
+
+
 ## Credits
 - Roberto L. Machado (owner)
 
