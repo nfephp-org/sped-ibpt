@@ -52,6 +52,9 @@ class Rest implements RestInterface
         curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($oCurl, CURLOPT_TIMEOUT, 10);
         curl_setopt($oCurl, CURLOPT_CONNECTTIMEOUT, 30);
+        curl_setopt($oCurl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($oCurl, CURLOPT_SSLVERSION, 0);
         $response = curl_exec($oCurl);
         $httpcode = curl_getinfo($oCurl, CURLINFO_HTTP_CODE);
         $ret = [];

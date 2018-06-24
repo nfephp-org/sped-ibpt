@@ -41,8 +41,10 @@ Para saber mais consulte a [documentação do IBPT](http://iws.ibpt.org.br/).
 
 Antes de poder utilizar esta classe é necessário que você obtenha um TOKEN de acesso cadastrando a empresa no IBPT [página de Cadastro](https://deolhonoimposto.ibpt.org.br/Usuario/CriarConta)
 
-- PHP >= 5.6
+- PHP >= 7.0
 - php-curl
+- php-json
+- php-openssl
 
 ## Intalação
 
@@ -54,39 +56,9 @@ Ou adicione ao seu composer.json:
 ```
 {
     "require": {
-        "nfephp-org/sped-ibpt": "^1.0"
+        "nfephp-org/sped-ibpt": "^2.0"
     }
 }
-```
-
-# NFePHP\Ibpt\Ibpt::class
-
-## Forma de Uso
-
-Existe um exemplo comentado na pasta **"examples"**.
-
-```php
-//indica o caminho da classe conforme PSR4
-//para usar dessa forma é necessário utlizar o autoload do composer.
-use NFePHP\Ibpt\Ibpt;
-
-$token = "<Aqui voce coloca seu token do IBPT>";
-$cnpj = "<seu CNPJ>";
-$ncm = "60063100"; //coloque o NCM do produto
-$uf = 'MG'; //coloque o estado que deseja saber os dados
-$extarif = 0; //indique o numero da exceção tarifaria, se existir ou deixe como zero
-
-//instancia a classe Ibpt
-$ibpt = new Ibpt($cnpj, $token);
-
-//executa a consulta ao IBPT, o retorno é em stdClass
-$resp = $ibpt->productTaxes($uf, $ncm, $extarif);
-
-//caso não haja um retorno o erro e outras informações serão retornadas
-echo "<pre>";
-print_r($resp); //aqui mostra o retorno em um stdClass
-echo "</pre>";
-
 ```
 
 # Métodos
@@ -96,43 +68,82 @@ Este método consulta o webservice do IBPT e solicita os dados referentes aos im
 Sendo:
 ```php
 
-$uf = 'SP'; //A sigla da unidade da federação
-$ncm = '60063110'; //numero do NCM do produto
-$extarif = 0; //numero da exceção tarifária
+use NFePHP\Ibpt\Ibpt;
+
+$token = "<indique seu token>"; //OBRIGATÓRIO
+$cnpj = "<indique seu CNPJ>"; //OBRIGATÓRIO
+
+$ncm = "60063210"; //OBRIGATÓRIO coloque o NCM do produto
+$uf = 'SP'; //OBRIGATÓRIO coloque o estado que deseja saber os dados
+$extarif = 0; //OBRIGATÓRIO indique o numero da exceção tarifaria, se existir ou deixe como zero
+$codigoInterno = ''; //(OPCIONAL) indique o codigo interno do produto 
+$descricao = 'Tecido';//OBRIGATÓRIO
+$unidadeMedida = 'kg'; //OBRIGATÓRIO
+$valor = '60.00'; //OBRIGATÓRIO
+$gtin = 'SEM GTIN'; //OBRIGATÓRIO
+
+//instancia a classe 
+$ibpt = new Ibpt($cnpj, $token);
 
 public function productTaxes(
-      $uf,
-      $ncm,
-      $extarif = 0,
+    $uf,
+    $ncm,
+    $extarif,
+    $descricao,
+    $unidadeMedida,
+    $valor,
+    $gtin,
+    $codigoInterno
 )
 ```
 Em caso de SUCESSO e com a localização do Produto solicitado irá retornar:
 ```php
 stdClass Object
 (
-    [Codigo] => 60063110
-    [UF] => MG
+    [Codigo] => 60063210
+    [UF] => SP
     [EX] => 0
-    [Descricao] => Tecidos de malha de fibras sinteticas, crus ou branqueados, de náilon ou de outras poliamidas
+    [Descricao] => Tecidos de malha de fibras sinteticas, tintos, de náilon ou de outras poliamidas
     [Nacional] => 13.45
     [Estadual] => 18
-    [Importado] => 19.72
+    [Importado] => 36.08
     [Municipal] => 0
     [Tipo] => 0
-    [VigenciaInicio] => 26/10/2016
-    [VigenciaFim] => 31/12/2016
-    [Chave] => E13pH1
-    [Versao] => 16.2.B
-    [Fonte] => IBPT
+    [VigenciaInicio] => 01/04/2018
+    [VigenciaFim] => 30/06/2018
+    [Chave] => F3W1D7
+    [Versao] => 18.1.B
+    [Fonte] => IBPT/empresometro.com.br
+    [Valor] => 60
+    [ValorTributoNacional] => 8.07
+    [ValorTributoEstadual] => 10.8
+    [ValorTributoImportado] => 21.65
+    [ValorTributoMunicipal] => 0
 )
 ```
 Em caso de não encontrar o produto pelo NCM, ou qualquer outro erro na comunicação, retornará algo como:
 ```php
 stdClass Object
 (
-    [error] => SUCESSO
-    [response] => "Produto não encontrado"
-    [httpcode] => 404
+    [Codigo] => 
+    [UF] => 
+    [EX] => 0
+    [Descricao] => 
+    [Nacional] => 0
+    [Estadual] => 0
+    [Importado] => 0
+    [Municipal] => 0
+    [Tipo] => 
+    [VigenciaInicio] => 
+    [VigenciaFim] => 
+    [Chave] => 
+    [Versao] => 
+    [Fonte] => 
+    [Valor] => 60
+    [ValorTributoNacional] => 0
+    [ValorTributoEstadual] => 0
+    [ValorTributoImportado] => 0
+    [ValorTributoMunicipal] => 0
 )
 ```
 
@@ -141,42 +152,74 @@ Este método consulta o webservice do IBPT e solicita os dados referentes aos im
 Sendo:
 ```php
 
-$uf = 'SP'; //A sigla da unidade da federação
-$code = '01.07'; //Código da NBS ou da LC116 do serviço 
+use NFePHP\Ibpt\Ibpt;
 
-*NOTA: codigo com 4 digitos com zero a esquerda, com ou sem ponto separador*
+$token = "<indique seu token>"; //OBRIGATÓRIO
+$cnpj = "<indique seu CNPJ>"; //OBRIGATÓRIO
 
-public function serviceTaxes(
-      $uf,
-      $code
-)
+$codigo = '0107';  //OBRIGATÓRIO numero LV116 ou NBM
+$uf = 'SP'; // //OBRIGATÓRIO
+$descricao = 'Suporte técnico em informática';  //OBRIGATÓRIO
+$unidadeMedida = 'un';  //OBRIGATÓRIO
+$valor = '500.00';  //OBRIGATÓRIO
+
+//instancia a classe 
+$ibpt = new Ibpt($cnpj, $token);
+
+$resp = $ibpt->serviceTaxes(
+    $uf,
+    $codigo,
+    $descricao,
+    $unidadeMedida,
+    $valor
+);
 ```
 Em caso de SUCESSO e com a localização do Serviço solicitado irá retornar:
 ```php
 stdClass Object
 (
-    [Codigo] => 107
-    [UF] => DF
+    [Codigo] => 0107
+    [UF] => SP
     [Descricao] => Suporte técnico em informática, inclusive instalação, configuração e manutenção de programas de computação e bancos de dados.
-    [Tipo] => LC116
+    [Tipo] => 2
     [Nacional] => 13.45
     [Estadual] => 0
-    [Municipal] => 2
+    [Municipal] => 2.7
     [Importado] => 15.45
-    [VigenciaInicio] => 01/07/2017
-    [VigenciaFim] => 30/09/2017
-    [Chave] => M2L5P8
-    [Versao] => 17.2.A
+    [VigenciaInicio] => 01/04/2018
+    [VigenciaFim] => 30/06/2018
+    [Chave] => F3W1D7
+    [Versao] => 18.1.B
     [Fonte] => IBPT/empresometro.com.br
+    [Valor] => 500
+    [ValorTributoNacional] => 67.25
+    [ValorTributoEstadual] => 0
+    [ValorTributoImportado] => 77.25
+    [ValorTributoMunicipal] => 13.5
 )
 ```
 Em caso de não encontrar o produto pelo NCM, ou qualquer outro erro na comunicação, retornará algo como:
 ```php
 stdClass Object
 (
-    [error] => SUCESSO
-    [response] => "Serviço não encontrado"
-    [httpcode] => 404
+    [Codigo] => 
+    [UF] => 
+    [Descricao] => 
+    [Tipo] => 
+    [Nacional] => 0
+    [Estadual] => 0
+    [Municipal] => 0
+    [Importado] => 0
+    [VigenciaInicio] => 
+    [VigenciaFim] => 
+    [Chave] => 
+    [Versao] => 
+    [Fonte] => 
+    [Valor] => 500
+    [ValorTributoNacional] => 0
+    [ValorTributoEstadual] => 0
+    [ValorTributoImportado] => 0
+    [ValorTributoMunicipal] => 0
 )
 ```
 
