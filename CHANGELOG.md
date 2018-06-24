@@ -12,3 +12,7 @@ Primeira release
 
 ## 1.0.2
 -Correções menores em README e comentários
+
+## 2.0.0
+- Alteração de API para HTTPS 
+  NOTA: somente essa versão será aceita após 05 de agosto de 2018
