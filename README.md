@@ -85,7 +85,7 @@ $gtin = 'SEM GTIN'; //OBRIGATÓRIO
 //instancia a classe 
 $ibpt = new Ibpt($cnpj, $token);
 
-public function productTaxes(
+$resp = $ibpt->productTaxes(
     $uf,
     $ncm,
     $extarif,
@@ -94,7 +94,7 @@ public function productTaxes(
     $valor,
     $gtin,
     $codigoInterno
-)
+);
 ```
 Em caso de SUCESSO e com a localização do Produto solicitado irá retornar:
 ```php
