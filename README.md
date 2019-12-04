@@ -14,7 +14,7 @@ Este repositório faz parte do framework [NFePHP](http://www.nfephp.org), como u
 
 Esta é uma API simples para permitir o acesso ao recursos providos pelos serviços RestFul do [IBPT "Instituto Brasileiro de Planejamento e Tributação"](https://deolhonoimposto.ibpt.org.br/).
 
-Para saber mais consulte a [documentação do IBPT](http://iws.ibpt.org.br/).
+Para saber mais consulte a [documentação do IBPT](https://deolhonoimposto.ibpt.org.br/).
 
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
