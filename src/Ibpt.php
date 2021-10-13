@@ -1,42 +1,72 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Ibpt\Ibpt
+ * @copyright 2016 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @link      http://github.com/nfephp-org/sped-ibpt
+ */
+
 namespace NFePHP\Ibpt;
+
+use NFePHP\Ibpt\RestInterface;
+use NFePHP\Ibpt\Rest;
 
 /**
  * Class to get taxes informations for consumers from IBPT
  *
- * @category  NFePHP
+ * @category  Library
  * @package   NFePHP\Ibpt\Ibpt
- * @copyright NFePHP Copyright (c) 2016
- * @license   http://www.gnu.org/licenses/lgpl.txt LGPLv3+
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @copyright 2016 NFePHP Copyright (c)
  * @license   https://opensource.org/licenses/MIT MIT
- * @license   http://www.gnu.org/licenses/gpl.txt GPLv3+
- * @author    Roberto L. Machado <linux.rlm at gmail dot com>
- * @link      http://github.com/nfephp-org/sped-nfe for the canonical source repository
+ * @link      http://github.com/nfephp-org/sped-ibpt
  */
-use NFePHP\Ibpt\RestInterface;
-use NFePHP\Ibpt\Rest;
-
 class Ibpt
 {
-    public $url = 'https://apidoni.ibpt.org.br/api/v1/';
-    public $cnpj;
-    public $token;
-    public $rest;
+    /**
+     * URL
+     *
+     * @var string
+     */
+    protected $url = 'https://apidoni.ibpt.org.br/api/v1/';
+    /**
+     * CNPJ do autorizado a fazer a cunsulta no IBPT
+     *
+     * @var string
+     */
+    private $cnpj;
+    /**
+     * Token do IBPT
+     *
+     * @var string
+     */
+    private $token;
+    /**
+     * Classe Rest Client
+     *
+     * @var object|null
+     */
+    protected $rest;
 
     /**
      * Constructor
-     * @codeCoverageIgnore
-     * @param string $cnpj
-     * @param string $token
-     * @param array $proxy
-     * @param RestInterface $rest
+     *
+     * @param string $cnpj  cnpj do autorizado
+     * @param string $token token do autorizado
+     * @param array $proxy dados para proxy
+     * @param object|null $rest interface
      */
     public function __construct(
         $cnpj,
         $token,
         $proxy = [],
-        RestInterface $rest = null
+        $rest = null
     ) {
         $this->cnpj = $cnpj;
         $this->token = $token;
@@ -48,15 +78,18 @@ class Ibpt
 
     /**
      * Get informations about produtcts taxes from IBPT restful service
-     * @param string $uf state abbreviation
-     * @param string $ncm
-     * @param int $extarif
-     * @param string $descricao
-     * @param string $unidadeMedida
-     * @param number $valor
-     * @param string $gtin
-     * @param string $codigoInterno
+     *
+     * @param string $uf sigla do estado
+     * @param string $ncm numero do ncm
+     * @param int    $extarif numero do ex tarifario
+     * @param string $descricao descrição
+     * @param string $unidadeMedida unidade de medida
+     * @param number $valor valor
+     * @param string $gtin codigo gtin
+     * @param string $codigoInterno codigo interno
+     *
      * @return \stdClass
+     *
      * @throws \Exception
      */
     public function productTaxes(
@@ -75,7 +108,7 @@ class Ibpt
             . "&codigo=$ncm"
             . "&uf=$uf"
             . "&ex=$extarif";
-        
+
           $uri .= !empty($codigoInterno) ? "&codigoInterno=" . rawurlencode($codigoInterno) : "";
           $uri .= '&descricao=' . rawurlencode($descricao);
           $uri .= '&unidadeMedida=' . rawurlencode($unidadeMedida);
@@ -86,11 +119,13 @@ class Ibpt
 
     /**
      * Get informations about services taxes from IBPT restful service
-     * @param string $uf
-     * @param string $codigo
-     * @param string $descricao
-     * @param string $unidadeMedida
-     * @param number $valor
+     *
+     * @param string $uf uf
+     * @param string $codigo codigo do serviço
+     * @param string $descricao descricao
+     * @param string $unidadeMedida unidade de medida
+     * @param number $valor valor
+     *
      * @return \stdClass
      */
     public function serviceTaxes(

@@ -1,14 +1,48 @@
 <?php
 
+/**
+ * This file belongs to the NFePHP project
+ * php version 7.0 or higher
+ *
+ * @category  Library
+ * @package   NFePHP\Ibpt\Rest
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @copyright 2016 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @link      http://github.com/nfephp-org/sped-ibpt
+ */
+
 namespace NFePHP\Ibpt\Tests;
 
 use NFePHP\Ibpt\Ibpt;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Unit Tests
+ *
+ * @category  Library
+ * @package   NFePHP\Ibpt\Rest
+ * @author    Roberto L. Machado <linux.rlm@gmail.com>
+ * @copyright 2016 NFePHP Copyright (c)
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @link      http://github.com/nfephp-org/sped-ibpt
+ */
 class IbptTest extends TestCase
 {
+    /**
+     *
+     * @var Ibpt
+     */
     public $ibpt;
+    /**
+     *
+     * @var object
+     */
     public $dummyRest;
+    /**
+     *
+     * @var array
+     */
     public $expectedProd = [
         'Codigo' => '60063210',
         'UF' => 'SP',
@@ -30,7 +64,10 @@ class IbptTest extends TestCase
         'ValorTributoImportado' => 21.65,
         'ValorTributoMunicipal' => 0
     ];
-    
+    /**
+     *
+     * @var array
+     */
     public $expectedServ = [
         'Codigo' => '0107',
         'UF' => 'SP',
@@ -52,24 +89,31 @@ class IbptTest extends TestCase
         'ValorTributoImportado' => 77.25,
         'ValorTributoMunicipal' => 13.5
     ];
-    
-    
+
+
+    /**
+     * Set UP
+     */
     public function setUp()
     {
         $this->dummyRest = $this->getMockBuilder('\NFePHP\Ibpt\RestInterface')
             ->setMethods(['pull'])
             ->getMock();
-        
         $this->dummyRest->method('pull')->willReturn(json_encode($this->expectedProd));
-                
         $this->ibpt = new Ibpt('12345678901234', 'a5354bf3890s0849', [], $this->dummyRest);
     }
-    
+
+    /**
+     * Test check instanciate
+     */
     public function testShouldInstantiate()
     {
         $this->assertInstanceOf(Ibpt::class, $this->ibpt);
     }
-    
+
+    /**
+     * Test Product Taxes
+     */
     public function testProductTaxes()
     {
         $expected = json_decode(json_encode($this->expectedProd));
@@ -79,29 +123,29 @@ class IbptTest extends TestCase
             0,
             'Tecidos de malha',
             'kg',
-            '60.00',
+            60.00,
             'SEM GTIN'
         );
         $this->assertEquals($expected, $resp);
     }
-    
+
     public function testServiceTaxes()
     {
         $this->dummyRest = $this->getMockBuilder('\NFePHP\Ibpt\RestInterface')
             ->setMethods(['pull'])
             ->getMock();
-        
+
         $this->dummyRest->method('pull')->willReturn(json_encode($this->expectedServ));
-                
+
         $this->ibpt = new Ibpt('12345678901234', 'a5354bf3890s0849', [], $this->dummyRest);
-        
+
         $expected = json_decode(json_encode($this->expectedServ));
         $resp = $this->ibpt->serviceTaxes(
             'SP',
             '0107',
             'Suporte técnico em informática',
             'un',
-            '500.00'
+            500.00
         );
         $this->assertEquals($expected, $resp);
     }
