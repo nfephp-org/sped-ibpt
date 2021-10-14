@@ -78,7 +78,7 @@ class Rest implements RestInterface
         $ret['response'] = $response;
         $ret['httpcode'] = $httpcode;
         curl_close($oCurl);
-        if (intval($soaperror_code) == 0) {
+        if (intval($soaperror_code) != 0) {
             throw new \Exception("Erro cURL [{$soaperror_code}] {$soaperror}");
         }
         if ($httpcode != 200) {
