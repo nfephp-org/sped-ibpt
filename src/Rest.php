@@ -36,16 +36,20 @@ class Rest implements RestInterface
      */
     protected $proxy = [];
 
+    protected $timeout;
+
     /**
      * Constructor
      *
      * @param array $proxy Parameter for proxy ['IP','PORT','USER','PASS']
      */
-    public function __construct($proxy = [])
+    public function __construct($proxy = [], $timeout = 10)
     {
         if (!empty($proxy)) {
             $this->proxy = $proxy;
         }
+
+        $this->timeout = $timeout;
     }
 
     /**
@@ -64,7 +68,7 @@ class Rest implements RestInterface
             $this->setProxy($oCurl, $this->proxy);
         }
         curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($oCurl, CURLOPT_TIMEOUT, 10);
+        curl_setopt($oCurl, CURLOPT_TIMEOUT, $this->timeout);
         curl_setopt($oCurl, CURLOPT_CONNECTTIMEOUT, 30);
         curl_setopt($oCurl, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, 0);
