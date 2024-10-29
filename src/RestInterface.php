@@ -4,7 +4,6 @@ namespace NFePHP\Ibpt;
 
 interface RestInterface
 {
-
     /**
      * Pull data form IBPT Restful service to obtain taxes values
      *
