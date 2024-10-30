@@ -28,7 +28,6 @@ use NFePHP\Ibpt\RestInterface;
  */
 class Rest implements RestInterface
 {
-
     /**
      * Parametros do proxy
      *
@@ -36,12 +35,18 @@ class Rest implements RestInterface
      */
     protected $proxy = [];
 
+    /**
+     * Timeout para requisição
+     *
+     * @var int
+     */
     protected $timeout;
 
     /**
      * Constructor
      *
      * @param array $proxy Parameter for proxy ['IP','PORT','USER','PASS']
+     * @param int $timeout Timeout for request
      */
     public function __construct($proxy = [], $timeout = 10)
     {
